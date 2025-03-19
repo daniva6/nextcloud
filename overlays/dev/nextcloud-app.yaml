@@ -9,9 +9,9 @@ spec:
     namespace: nextcloud
     server: https://kubernetes.default.svc
   sources:
-  - repoURL: git@github.com:daniva6/k8s.git
+  - repoURL: https://github.com/daniva6/nextcloud.git
     targetRevision: HEAD
-    path: nextcloud/overlays/dev
+    path: overlays/dev
   - repoURL: https://nextcloud.github.io/helm/
     chart: nextcloud
     targetRevision: '6.6.9'

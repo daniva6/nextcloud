@@ -8,7 +8,7 @@ resources:
 - mariabackup-pvc.yaml
 - mariadb-configmap.yaml
 - mariadb-sealedsecret.yaml
-- mariadb-sealedsecret.yaml
+- nextcloud-sealedsecret.yaml
 - nextcloud-data-pvc.yaml
 - nextcloud-pvc.yaml
 - redis.yaml
