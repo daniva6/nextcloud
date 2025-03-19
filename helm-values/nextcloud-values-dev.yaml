@@ -2,10 +2,10 @@
 ## ref: https://hub.docker.com/r/library/nextcloud/tags/
 ##
 image:
-  # repository: daniva6/nextcloud
-  # tag: 30.0.7-apache
-  repository: dvog/nextcloud
-  tag: 29.0.8-apache
+  repository: daniva6/nextcloud
+  tag: 30.0.7-apache
+  # repository: dvog/nextcloud
+  # tag: 29.0.8-apache
   pullPolicy: IfNotPresent
   # pullSecrets:
   #   - myRegistrKeySecretName
