@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: nextcloud
+  
+resources:
+- nextcloud-ns.yaml
+- mariabackup-pvc.yaml
+- mariadb-configmap.yaml
+- mariadb-sealedsecret.yaml
+- mariadb-sealedsecret.yaml
+- nextcloud-data-pvc.yaml
+- nextcloud-pvc.yaml
+- redis.yaml
+- nextcloud-mariadb.yaml
+- nextcloud-ir.yaml
+- nextcloud-backup.yaml

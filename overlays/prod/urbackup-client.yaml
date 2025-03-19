@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: urbackup-client
+  namespace: nextcloud
+spec:
+  selector:
+    matchLabels:
+      app: urbackup-client
+  template:
+    metadata:
+      labels:
+        app: urbackup-client
+    spec:
+      containers:
+      - env:
+        - name: URBACKUP_SERVER_NAME
+          value: 192.168.0.211
+        - name: URBACKUP_CLIENT_NAME
+          value: nextcloud
+        - name: URBACKUP_CLIENT_AUTHKEY
+          value: HMp8D9ahKD
+        image: uroni/urbackup-client:latest
+        name: urbackup-client
+        volumeMounts:
+        - mountPath: /backup
+          name: nextcloud-data
+        - mountPath: /backup/nextcloud
+          name: nextcloud
+        - mountPath: /backup/mariadb
+          name: mariabackup
+      volumes:
+      - name: nextcloud-data
+        persistentVolumeClaim:
+          claimName: nextcloud-data
+      - name: nextcloud
+        persistentVolumeClaim:
+          claimName: nextcloud
+      - name: mariabackup
+        persistentVolumeClaim:
+          claimName: mariabackup
