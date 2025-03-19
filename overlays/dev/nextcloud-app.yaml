@@ -9,7 +9,7 @@ spec:
     namespace: nextcloud
     server: https://kubernetes.default.svc
   sources:
-  - repoURL: https://github.com/daniva6/nextcloud.git
+  - repoURL: git@github.com:daniva6/nextcloud.git
     targetRevision: HEAD
     path: overlays/dev
   - repoURL: https://nextcloud.github.io/helm/
@@ -18,7 +18,7 @@ spec:
     helm:
       valueFiles:
       - $values/helm-values/nextcloud-values-dev.yaml
-  - repoURL: https://github.com/daniva6/nextcloud.git
+  - repoURL: git@github.com:daniva6/nextcloud.git
     targetRevision: HEAD
     ref: values
     
