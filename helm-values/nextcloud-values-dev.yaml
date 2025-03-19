@@ -5,7 +5,7 @@ image:
   # repository: daniva6/nextcloud
   # tag: 30.0.7-apache
   repository: dvog/nextcloud
-  tag: 28.0.9-apache
+  tag: 29.0.8-apache
   pullPolicy: IfNotPresent
   # pullSecrets:
   #   - myRegistrKeySecretName
