@@ -659,6 +659,8 @@ resources: {}
   #  cpu: 100m
   #  memory: 128Mi
   # requests:
+
+
   #  cpu: 100m
   #  memory: 128Mi
 
@@ -681,7 +683,7 @@ readinessProbe:
   successThreshold: 1
 startupProbe:
   enabled: false
-  initialDelaySeconds: 60
+  initialDelaySeconds: 30
   periodSeconds: 10
   timeoutSeconds: 5
   failureThreshold: 30
