@@ -4,7 +4,7 @@ metadata:
   name: nextcloud
   namespace: argocd
 spec:
-  project: development
+  project: default
   destination:
     namespace: nextcloud
     server: https://kubernetes.default.svc
