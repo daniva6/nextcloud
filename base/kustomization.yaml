@@ -6,7 +6,6 @@ namespace: nextcloud
 resources:
 - nextcloud-ns.yaml
 - mariabackup-pvc.yaml
-- mariadb-configmap.yaml
 - mariadb-sealedsecret.yaml
 - nextcloud-sealedsecret.yaml
 - nextcloud-data-pvc.yaml
