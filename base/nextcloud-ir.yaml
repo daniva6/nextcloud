@@ -3,7 +3,7 @@ kind: IngressRoute
 metadata:
   name: nextcloud-tls
   annotations:
-    avp.kubernetes.io/path: "kv-v2/data/firefly"     
+    avp.kubernetes.io/path: "kv-v2/data/nextcloud"     
 spec:
   entryPoints:
     - websecure
@@ -28,7 +28,7 @@ kind: IngressRoute
 metadata:
   name: nextcloud
   annotations:
-    avp.kubernetes.io/path: "kv-v2/data/firefly"     
+    avp.kubernetes.io/path: "kv-v2/data/nextcloud"     
 spec:
   entryPoints:
     - web
@@ -49,7 +49,7 @@ kind: Middleware
 metadata:
   name: nextcloud-header
   annotations:
-    avp.kubernetes.io/path: "kv-v2/data/firefly"     
+    avp.kubernetes.io/path: "kv-v2/data/nextcloud"     
 spec:
   headers:
     forceSTSHeader: true
