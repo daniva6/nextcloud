@@ -10,8 +10,8 @@ resources:
   # - name: fireflyiii/data-importer
     # newTag: version-1.6.1
 
-patches:
-  - path: nextcloud-ir-patch.yaml
+# patches:
+  # - path: nextcloud-ir-patch.yaml
 
   
 

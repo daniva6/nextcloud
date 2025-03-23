@@ -6,8 +6,8 @@ namespace: nextcloud
 resources:
 - nextcloud-ns.yaml
 - mariabackup-pvc.yaml
-- mariadb-sealedsecret.yaml
-- nextcloud-sealedsecret.yaml
+- mariadb-secret.yaml
+- nextcloud-secret.yaml
 - nextcloud-data-pvc.yaml
 - nextcloud-pvc.yaml
 - redis.yaml
