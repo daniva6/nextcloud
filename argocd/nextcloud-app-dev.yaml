@@ -12,6 +12,8 @@ spec:
   - repoURL: git@github.com:daniva6/nextcloud.git
     targetRevision: HEAD
     path: overlays/dev
+    plugin: 
+      name: argocd-vault-plugin-kustomize    
   - repoURL: https://nextcloud.github.io/helm/
     chart: nextcloud
     targetRevision: '6.6.9'
