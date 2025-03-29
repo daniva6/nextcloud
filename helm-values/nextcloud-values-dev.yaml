@@ -74,7 +74,7 @@ phpClientHttpsFix:
   protocol: https
 
 nextcloud:
-  host: nextcloud.vogelfamily.ch
+  host: <url>
   # username: admin
   # password: changeme
   ## Use an existing secret
@@ -218,15 +218,14 @@ nextcloud:
       <?php
       $CONFIG = array (
         'overwriteprotocol' => 'https',
-        'overwrite.cli.url' => 'https://nextcloud.vogelfamily.ch',
+        'overwrite.cli.url' => 'https://<url>',
         'filelocking.enabled' => 'true',
         'loglevel' => '2',
         'enable_previews' => true,
         'trusted_domains' =>
            [
             'nextcloud',
-            'nextcloud.dev.vogelfamily.ch',
-            'nextcloud.vogelfamily.ch'
+            '<url>'
            ],
         'trusted_proxies' => ['10.0.0.0/8'],
         'forwarded_for_headers' => ['HTTP_CF_CONNECTING_IP'],
