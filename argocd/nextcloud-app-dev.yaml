@@ -23,4 +23,6 @@ spec:
   - repoURL: https://github.com/daniva6/nextcloud.git
     targetRevision: HEAD
     ref: values
-    
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true        
