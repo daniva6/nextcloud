@@ -74,7 +74,7 @@ phpClientHttpsFix:
   protocol: https
 
 nextcloud:
-  host: <url>
+  host: <path:k8s-secrets/data/nextcloud#url>
   # username: admin
   # password: changeme
   ## Use an existing secret
@@ -218,14 +218,14 @@ nextcloud:
       <?php
       $CONFIG = array (
         'overwriteprotocol' => 'https',
-        'overwrite.cli.url' => 'https://<url>',
+        'overwrite.cli.url' => 'https://<path:k8s-secrets/data/nextcloud#url>',
         'filelocking.enabled' => 'true',
         'loglevel' => '2',
         'enable_previews' => true,
         'trusted_domains' =>
            [
             'nextcloud',
-            '<url>'
+            '<path:k8s-secrets/data/nextcloud#url>'
            ],
         'trusted_proxies' => ['10.0.0.0/8'],
         'forwarded_for_headers' => ['HTTP_CF_CONNECTING_IP'],
