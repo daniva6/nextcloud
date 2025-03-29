@@ -1,4 +1,4 @@
-# Deploy firefly-iii on k8s with Kustomize and ArgoCD 
+# Deploy nextcloud on k8s with Kustomize and ArgoCD 
 
 ## Description
 
