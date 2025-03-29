@@ -4,14 +4,12 @@ kind: Kustomization
 resources:
 - ../../base
 
-# images:
-  # - name: fireflyiii/core
-    # newTag: version-6.2.9
-  # - name: fireflyiii/data-importer
-    # newTag: version-1.6.1
+images:
+  - name: dvog/nextcloud
+    newTag: 29.0.8-apache
 
-# patches:
-  # - path: nextcloud-ir-patch.yaml
+
+
 
   
 

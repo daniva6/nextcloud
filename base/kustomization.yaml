@@ -4,7 +4,6 @@ kind: Kustomization
 namespace: nextcloud
   
 resources:
-- nextcloud-ns.yaml
 - mariabackup-pvc.yaml
 - mariadb-secret.yaml
 - nextcloud-secret.yaml
