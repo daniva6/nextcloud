@@ -97,10 +97,10 @@ spec:
                     'maintenance_window_start' => 1,
                   );               
               extraEnv:
-              - name: PHP_MEMORY_LIMIT
-                value: "16G"
-              - name: PHP_UPLOAD_LIMIT
-                value: "16G"
+               - name: PHP_MEMORY_LIMIT
+                 value: "16G"
+               - name: PHP_UPLOAD_LIMIT
+                 value: "16G"
             internalDatabase:
               enabled: false
             externalDatabase:
