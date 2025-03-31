@@ -55,7 +55,7 @@ spec:
               configs:
                 custom.config.php: |-
                   <?php
-                  $CONFIG = array (
+                  '$CONFIG' = array (
                     'overwriteprotocol' => 'https',
                     'overwrite.cli.url' => 'https://<path:k8s-secrets/data/nextcloud#url>',
                     'filelocking.enabled' => 'true',
