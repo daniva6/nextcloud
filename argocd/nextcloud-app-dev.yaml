@@ -39,14 +39,14 @@ spec:
               ## SMTP configuration
               mail:
                 enabled: true
-                fromAddress: 
+                fromAddress: <path:k8s-secrets/data/nextcloud#smtp-username>
                 domain: nextcloud
                 smtp:
                   host: <path:k8s-secrets/data/nextcloud#smtp-host>
                   secure: ssl
                   port: 465
                   authtype: PLAIN
-                  name: <path:k8s-secrets/data/nextcloud#smtp-user>
+                  name: <path:k8s-secrets/data/nextcloud#smtp-username>
                   password: <path:k8s-secrets/data/nextcloud#smtp-password>
               defaultConfigs:
                 redis.config.php: false
