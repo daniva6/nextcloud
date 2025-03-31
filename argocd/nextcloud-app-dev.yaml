@@ -127,12 +127,12 @@ spec:
                 subPath: data
                 existingClaim: "nextcloud-data"
                 accessMode: ReadWriteMany
-            livenessProbe:
-              enabled: true
-              initialDelaySeconds: 180
-            readinessProbe:
-              enabled: true
-              initialDelaySeconds: 180
-            startupProbe:
-              enabled: false
-              initialDelaySeconds: 180
+            # livenessProbe:
+              # enabled: true
+              # initialDelaySeconds: 180
+            # readinessProbe:
+              # enabled: true
+              # initialDelaySeconds: 180
+            # startupProbe:
+              # enabled: false
+              # initialDelaySeconds: 180
