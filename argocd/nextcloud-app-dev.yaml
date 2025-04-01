@@ -27,9 +27,7 @@ spec:
           value: |
             image:
               repository: daniva6/nextcloud
-              tag: 30.0.7-apache
-              # repository: dvog/nextcloud
-              # tag: 29.0.8-apache
+              tag: 30.0.8-apache-smb
             replicaCount: 1
             nextcloud:
               host: <path:k8s-secrets/data/nextcloud#url>
