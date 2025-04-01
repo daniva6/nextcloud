@@ -21,8 +21,6 @@ spec:
     plugin:
       name: argocd-vault-plugin-helm
       env:
-        - name: $CONFIG
-          value: $CONFIG
         - name: HELM_VALUES
           value: |
             image:
@@ -51,7 +49,7 @@ spec:
               defaultConfigs:
                 redis.config.php: false
                 s3.config.php: false
-                swift.config.php: fals              
+                swift.config.php: false            
               configs:
                 custom.config.php: |-
                   <?php
