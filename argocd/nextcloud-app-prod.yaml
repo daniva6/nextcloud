@@ -26,7 +26,7 @@ spec:
             image:
               repository: daniva6/nextcloud
               tag: 29.0.14-apache-smb
-            replicaCount: 1
+            replicaCount: 2
             nextcloud:
               host: <path:k8s-secrets/data/nextcloud#url>
               # username: admin
