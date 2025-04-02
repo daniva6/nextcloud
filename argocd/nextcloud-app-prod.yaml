@@ -1,0 +1,134 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nextcloud
+  namespace: argocd
+spec:
+  project: default
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true        
+  destination:
+    namespace: nextcloud
+    server: https://kubernetes.default.svc
+  sources:
+  - repoURL: git@github.com:daniva6/nextcloud.git
+    targetRevision: HEAD
+    path: overlays/dev
+  - chart: nextcloud
+    repoURL: https://nextcloud.github.io/helm/
+    targetRevision: 6.6.9
+    plugin:
+      name: argocd-vault-plugin-helm
+      env:
+        - name: HELM_VALUES
+          value: |
+            image:
+              repository: daniva6/nextcloud
+              tag: 29.0.14-apache-smb
+            replicaCount: 1
+            nextcloud:
+              host: <path:k8s-secrets/data/nextcloud#url>
+              # username: admin
+              # password: changeme
+              existingSecret:
+                enabled: true
+                secretName: nextcloud
+              ## SMTP configuration
+              mail:
+                enabled: true
+                fromAddress: <path:k8s-secrets/data/nextcloud#smtp-username>
+                domain: nextcloud
+                smtp:
+                  host: <path:k8s-secrets/data/nextcloud#smtp-host>
+                  secure: ssl
+                  port: 465
+                  authtype: PLAIN
+                  name: <path:k8s-secrets/data/nextcloud#smtp-username>
+                  password: <path:k8s-secrets/data/nextcloud#smtp-password>
+              defaultConfigs:
+                redis.config.php: false
+                s3.config.php: false
+                swift.config.php: false            
+              configs:
+                custom.config.php: |-
+                  <?php
+                  $$CONFIG = array (
+                    'overwriteprotocol' => 'https',
+                    'overwrite.cli.url' => 'https://<path:k8s-secrets/data/nextcloud#url>',
+                    'filelocking.enabled' => 'true',
+                    'loglevel' => '2',
+                    'enable_previews' => true,
+                    'trusted_domains' =>
+                       [
+                        'nextcloud',
+                        '<path:k8s-secrets/data/nextcloud#url>'
+                       ],
+                    'trusted_proxies' => ['10.0.0.0/8'],
+                    'forwarded_for_headers' => ['HTTP_CF_CONNECTING_IP'],
+                    'check_data_directory_permissions' => false,        
+                    'default_phone_region' => 'CH',
+                    'skeletondirectory' => '',
+                    'enabledPreviewProviders' => [
+                        'OC\Preview\TXT',
+                        'OC\Preview\MarkDown',
+                        'OC\Preview\PDF',
+                        'OC\Preview\MSOfficeDoc',
+                        'OC\Preview\JPEG',
+                        'OC\Preview\PNG',
+                        'OC\Preview\GIF',
+                        'OC\Preview\BMP',
+                        'OC\Preview\XBitmap',
+                        'OC\Preview\MP3',
+                        'OC\Preview\HEIC',
+                        'OC\Preview\Movie',
+                        'OC\Preview\MKV',
+                        'OC\Preview\MP4',
+                        'OC\Preview\AVI',
+                      ],
+                    'memcache.distributed' => '\OC\Memcache\Redis',
+                    'memcache.locking' => '\OC\Memcache\Redis',  
+                    'redis' => [
+                         'host' => 'redis',
+                         'port' => '6379',
+                      ],
+                    'maintenance_window_start' => 1,
+                  );               
+              extraEnv:
+               - name: PHP_MEMORY_LIMIT
+                 value: "16G"
+               - name: PHP_UPLOAD_LIMIT
+                 value: "16G"
+            internalDatabase:
+              enabled: false
+            externalDatabase:
+              enabled: true
+              host: nextcloud-mariadb
+              existingSecret:
+                enabled: true
+                secretName: mariadb
+                usernameKey: db-username
+                passwordKey: db-password
+            cronjob:
+              enabled: true  
+            service:
+              type: ClusterIP
+              port: 80  
+            persistence:
+              enabled: true
+              existingClaim: nextcloud
+              accessMode: ReadWriteMany
+              nextcloudData:
+                enabled: true
+                subPath: data
+                existingClaim: "nextcloud-data"
+                accessMode: ReadWriteMany
+            # livenessProbe:
+              # enabled: true
+              # initialDelaySeconds: 180
+            # readinessProbe:
+              # enabled: true
+              # initialDelaySeconds: 180
+            # startupProbe:
+              # enabled: false
+              # initialDelaySeconds: 180
