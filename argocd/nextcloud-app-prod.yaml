@@ -14,7 +14,7 @@ spec:
   sources:
   - repoURL: https://github.com/daniva6/nextcloud.git
     targetRevision: HEAD
-    path: overlays/dev
+    path: overlays/prod
   - chart: nextcloud
     repoURL: https://nextcloud.github.io/helm/
     targetRevision: 6.6.9
