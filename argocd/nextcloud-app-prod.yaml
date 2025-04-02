@@ -24,10 +24,8 @@ spec:
         - name: HELM_VALUES
           value: |
             image:
-              repository: dvog/nextcloud
-              tag: 29.0.8-apache            
-              # repository: daniva6/nextcloud
-              # tag: 29.0.14-apache-smb
+              repository: daniva6/nextcloud
+              tag: 29.0.14-apache-smb
             replicaCount: 1
             nextcloud:
               host: <path:k8s-secrets/data/nextcloud#url>
