@@ -5,6 +5,21 @@ resources:
   - ../../base
   - urbackup-client.yaml
 
+patches:
+  - target:
+      kind: PersistentVolumeClaim
+      name: mariabackup
+    patch: |-
+      - op: replace
+        path: /spec/resources/requests/storage
+        value: "1Ti"
+  - target:
+      kind: PersistentVolumeClaim
+      name: nextcloud
+    patch: |-
+      - op: replace
+        path: /spec/storageClassName
+        value: "cephfs-r2"
 
 
 
