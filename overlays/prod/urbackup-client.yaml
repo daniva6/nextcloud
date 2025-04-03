@@ -15,11 +15,11 @@ spec:
       containers:
       - env:
         - name: URBACKUP_SERVER_NAME
-          value: 192.168.0.211
+          value: <path:k8s-secrets/data/common#urbackup-dsn>
         - name: URBACKUP_CLIENT_NAME
           value: nextcloud
         - name: URBACKUP_CLIENT_AUTHKEY
-          value: HMp8D9ahKD
+          value: <path:k8s-secrets/data/nextcloud#urbackup_client_authkey>
         image: uroni/urbackup-client:latest
         name: urbackup-client
         volumeMounts:
