@@ -125,10 +125,11 @@ spec:
                 accessMode: ReadWriteMany
             livenessProbe:
               enabled: true
-              initialDelaySeconds: 180
+              initialDelaySeconds: 30
             readinessProbe:
               enabled: true
-              initialDelaySeconds: 180
+              initialDelaySeconds: 30
             startupProbe:
               enabled: false
-              initialDelaySeconds: 180
+              initialDelaySeconds: 30
+         
