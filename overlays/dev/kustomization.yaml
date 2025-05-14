@@ -5,4 +5,4 @@ resources:
 - ../../base
 
 patches:
-- path: delete-redis.yaml
+- path: ../../patches/dev/delete-redis.yaml
