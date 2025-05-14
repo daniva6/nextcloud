@@ -1,0 +1,17 @@
+$patch: delete
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+---
+$patch: delete
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: Backup
+metadata:
+  name: nextcloud-mariadb
+# --- 
+# $patch: delete
+# apiVersion: k8s.mariadb.com/v1alpha1
+# kind: MariaDB
+# metadata:
+  # name: nextcloud-mariadb
