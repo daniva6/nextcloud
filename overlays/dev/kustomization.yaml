@@ -12,5 +12,11 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 0
-
+  - target:
+      kind: Backup
+      name: nextcloud-backup
+    patch: |-
+      - op: replace
+        path: /spec/schedule/suspend
+        value: true
 
