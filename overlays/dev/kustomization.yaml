@@ -19,4 +19,17 @@ patches:
       - op: replace
         path: /spec/schedule/suspend
         value: true
-
+  - target:
+      kind: MariaDB
+      name: nextcloud-mariadb
+    patch: |-
+      - op: replace
+        path: /spec/suspend
+        value: true
+  - target:
+      kind: StatefulSet
+      name: nextcloud-mariadb
+    patch: |-
+      - op: replace
+        path: /spec/replicas
+        value: 0
