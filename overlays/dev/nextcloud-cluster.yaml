@@ -1,0 +1,60 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: nextcloud
+spec:
+  imageName: ghcr.io/cloudnative-pg/postgresql:16 
+  instances: 1
+
+  primaryUpdateStrategy: unsupervised
+
+  bootstrap:
+    initdb:
+      database: nextcloud
+      owner: nextcloud
+      encoding: UTF8
+      localeCollate: C
+      localeCType: C
+
+  storage:
+    size: 50Gi
+    storageClass: cephrbd-hdd-r2
+
+  superuserSecret:
+    name: cnpg-superuser  
+    
+  postgresql:
+    parameters:
+      shared_buffers: "512MB"
+      max_connections: "200"
+      work_mem: "4MB"
+      maintenance_work_mem: "64MB"
+      effective_cache_size: "2GB"
+      log_min_duration_statement: "1000"
+
+  # monitoring:
+    # enablePodMonitor: true
+
+  # resources:
+    # requests:
+      # cpu: "250m"
+      # memory: "512Mi"
+    # limits:
+      # cpu: "1"
+      # memory: "1Gi"
+
+  # backup:
+    # barmanObjectStore:
+      # destinationPath: <path:k8s-secrets/data/tsdb#backup-destination-path>
+      # endpointURL: <path:k8s-secrets/data/tsdb#backup-endpoint-URL>
+      # s3Credentials:
+        # accessKeyId:
+          # name: minio-credentials
+          # key: ACCESS_KEY_ID
+        # secretAccessKey:
+          # name: minio-credentials
+          # key: SECRET_ACCESS_KEY
+      # wal:
+        # compression: gzip
+        # maxParallel: 4
+    # retentionPolicy: "30d"
