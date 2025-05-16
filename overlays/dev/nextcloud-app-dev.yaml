@@ -102,13 +102,24 @@ spec:
             internalDatabase:
               enabled: false
             externalDatabase:
-              enabled: true
-              host: nextcloud-mariadb
+              enabled: true 
+              type: postgresql
+              host: nextcloud-db-rw.default.svc.cluster.local 
+              name: nextcloud 
+              schema: nextcloud  
               existingSecret:
-                enabled: true
-                secretName: mariadb
-                usernameKey: db-username
-                passwordKey: db-password
+                enabled: true 
+                secretName: nextcloud-app 
+                usernameKey: username 
+                passwordKey: password             
+            
+              # enabled: true
+              # host: nextcloud-mariadb
+              # existingSecret:
+                # enabled: true
+                # secretName: mariadb
+                # usernameKey: db-username
+                # passwordKey: db-password
             cronjob:
               enabled: true  
             service:
