@@ -12,6 +12,8 @@ spec:
     initdb:
       database: nextcloud
       owner: nextcloud
+      secret:
+        name: nextcloud-owner       
       encoding: UTF8
       localeCollate: C
       localeCType: C

@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
 - ../../base
 - cnpg-superuser-secret.yaml
+- nextcloud-owner-secret.yaml
 - nextcloud-cluster.yaml
 
 patches:
