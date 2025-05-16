@@ -106,6 +106,7 @@ spec:
               type: postgresql
               host: nextcloud-rw
               name: nextcloud 
+              schema: nextcloud  
               existingSecret:
                 enabled: true 
                 secretName: nextcloud-owner 
