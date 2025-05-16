@@ -104,12 +104,12 @@ spec:
             externalDatabase:
               enabled: true 
               type: postgresql
-              host: nextcloud-db-rw.default.svc.cluster.local 
+              host: nextcloud-rw
               name: nextcloud 
               schema: nextcloud  
               existingSecret:
                 enabled: true 
-                secretName: nextcloud-app 
+                secretName: nextcloud-owner 
                 usernameKey: username 
                 passwordKey: password             
             
