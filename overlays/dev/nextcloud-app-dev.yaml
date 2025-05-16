@@ -112,7 +112,6 @@ spec:
                 secretName: nextcloud-owner 
                 usernameKey: username 
                 passwordKey: password             
-            
               # enabled: true
               # host: nextcloud-mariadb
               # existingSecret:
