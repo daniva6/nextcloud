@@ -106,19 +106,11 @@ spec:
               type: postgresql
               host: nextcloud-rw
               name: nextcloud 
-              schema: nextcloud  
               existingSecret:
                 enabled: true 
                 secretName: nextcloud-owner 
                 usernameKey: username 
                 passwordKey: password             
-              # enabled: true
-              # host: nextcloud-mariadb
-              # existingSecret:
-                # enabled: true
-                # secretName: mariadb
-                # usernameKey: db-username
-                # passwordKey: db-password
             cronjob:
               enabled: true  
             service:
