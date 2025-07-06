@@ -23,6 +23,8 @@ spec:
         image: uroni/urbackup-client:latest
         name: urbackup-client
         volumeMounts:
+        - mountPath: /usr/local/var/urbackup
+          name: urbackup           
         - mountPath: /backup
           name: nextcloud-data
         - mountPath: /backup/nextcloud
@@ -30,6 +32,9 @@ spec:
         - mountPath: /backup/mariadb
           name: mariabackup
       volumes:
+      - name: urbackup
+        persistentVolumeClaim:
+          claimName: urbackup          
       - name: nextcloud-data
         persistentVolumeClaim:
           claimName: nextcloud-data

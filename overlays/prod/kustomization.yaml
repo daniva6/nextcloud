@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - ../../base
   - urbackup-client.yaml
+  - urbackup-pvc.yaml  
 
 patches:
   - target:
