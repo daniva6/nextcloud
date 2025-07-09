@@ -2,11 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-- mariabackup-pvc.yaml
+- mariabackup-squid-pvc.yaml
 - mariadb-secret.yaml
 - nextcloud-secret.yaml
-- nextcloud-data-pvc.yaml
-- nextcloud-pvc.yaml
+- nextcloud-data-squid-pvc.yaml
+- nextcloud-squid-pvc.yaml
 - redis.yaml
 - nextcloud-mariadb.yaml
 - nextcloud-ir.yaml
