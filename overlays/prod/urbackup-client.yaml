@@ -37,10 +37,10 @@ spec:
           claimName: urbackup          
       - name: nextcloud-data
         persistentVolumeClaim:
-          claimName: nextcloud-data
+          claimName: nextcloud-data-squid
       - name: nextcloud
         persistentVolumeClaim:
-          claimName: nextcloud
+          claimName: nextcloud-squid
       - name: mariabackup
         persistentVolumeClaim:
           claimName: mariabackup
