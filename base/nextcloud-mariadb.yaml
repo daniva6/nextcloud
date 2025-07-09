@@ -22,7 +22,7 @@ spec:
 
   storage:
     size: 10Gi
-    storageClassName: cephrbd-r2
+    storageClassName: cephrbd-r2-squid
     resizeInUseVolumes: true
     waitForVolumeResize: true
   # volumes: 
