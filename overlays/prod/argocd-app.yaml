@@ -103,7 +103,7 @@ spec:
               enabled: false
             externalDatabase:
               enabled: true
-              host: nextcloud-mariadb
+              host: nextcloud-squid-mariadb
               existingSecret:
                 enabled: true
                 secretName: mariadb
