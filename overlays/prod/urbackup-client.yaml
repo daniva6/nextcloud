@@ -43,4 +43,4 @@ spec:
           claimName: nextcloud-squid
       - name: mariabackup
         persistentVolumeClaim:
-          claimName: mariabackup
+          claimName: mariabackup-squid

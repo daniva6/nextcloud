@@ -12,7 +12,7 @@ spec:
   storage:
     volume:
       persistentVolumeClaim:
-        claimName: mariabackup
+        claimName: mariabackup-squid
   args:
   - --single-transaction
     # - --databases nextcloud    
