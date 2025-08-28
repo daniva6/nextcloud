@@ -3,7 +3,7 @@
 #
 
 # Pull base image.
-FROM nextcloud:30.0.10-apache
+FROM nextcloud:31.0.8-apache
 
 MAINTAINER Daniel Vogel <Daniel.Vogel@gmx.ch>
 
