@@ -1,31 +1,30 @@
 #
-# Nextcloud with smbclient
+# Nextcloud v32 with smbclient and inotify
 #
+FROM nextcloud:32.0.3-apache
 
-# Pull base image.
-FROM nextcloud:31.0.9-apache
+LABEL maintainer="Daniel Vogel <Daniel.Vogel@gmx.ch>"
 
-MAINTAINER Daniel Vogel <Daniel.Vogel@gmx.ch>
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Install.
 RUN set -eux; \
-    # Install required packages
-    apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
         smbclient \
-        libmagickcore-7.q16-*-extra \
+        libsmbclient-dev \
+        libmagickcore-6.q16-6-extra \
         pkg-config \
+        build-essential \
         libtool \
         autoconf \
-        make \
-        gcc \
-        libc-dev \
-        libsmbclient-dev \
         && \
-    # Install PHP extensions from PECL
-    pecl install smbclient && \
-    docker-php-ext-enable smbclient && \
-    pecl install inotify && \
-    echo "extension=inotify.so" > /usr/local/etc/php/conf.d/inotify.ini && \
-    # Cleanup
+    pecl install smbclient inotify && \
+    docker-php-ext-enable smbclient inotify && \
+    apt-get purge -y --auto-remove \
+        libsmbclient-dev \
+        pkg-config \
+        build-essential \
+        libtool \
+        autoconf \
+        && \
     rm -rf /var/lib/apt/lists/*
