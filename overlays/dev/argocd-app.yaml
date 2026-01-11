@@ -25,7 +25,7 @@ spec:
           value: |
             image:
               repository: daniva6/nextcloud
-              tag: 31.0.8-apache-smb
+              tag: 31.0.9-apache-smb
             replicaCount: 1
             nextcloud:
               host: <path:k8s-secrets/data/nextcloud#url>
