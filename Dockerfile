@@ -12,7 +12,7 @@ RUN set -eux; \
     apt-get install -y --no-install-recommends \
         smbclient \
         libsmbclient-dev \
-        libmagickcore-6.q16-6-extra \
+        libmagickcore-7.q16-*-extra \
         pkg-config \
         build-essential \
         libtool \
