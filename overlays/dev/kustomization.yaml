@@ -3,18 +3,8 @@ kind: Kustomization
 
 resources:
 - ../../base
-- cnpg-superuser-secret.yaml
-- nextcloud-owner-secret.yaml
-- nextcloud-cluster.yaml
 
 patches:
-  # - target:
-      # kind: Deployment
-      # name: redis
-    # patch: |-
-      # - op: replace
-        # path: /spec/replicas
-        # value: 0
   - target:
       kind: Backup
       name: nextcloud-backup
@@ -22,17 +12,3 @@ patches:
       - op: replace
         path: /spec/schedule/suspend
         value: true
-  - target:
-      kind: MariaDB
-      name: nextcloud-mariadb
-    patch: |-
-      - op: replace
-        path: /spec/suspend
-        value: true
-  # - target:
-      # kind: StatefulSet
-      # name: nextcloud-mariadb
-    # patch: |-
-      # - op: replace
-        # path: /spec/replicas
-        # value: 0
