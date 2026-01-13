@@ -8,6 +8,6 @@ spec:
   resources:
     requests:
       storage: 10Ti
-  storageClassName: cephfs-hdd-r2-noexport
+  storageClassName: cephfs-hdd-r2-noexport-squid
   volumeMode: Filesystem
 
