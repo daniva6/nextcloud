@@ -25,7 +25,7 @@ spec:
           value: |
             image:
               repository: daniva6/nextcloud
-              tag: 32.0.3-apache-smb
+              tag: 33.0.2-apache-smb
             replicaCount: 1
             nextcloud:
               host: <path:k8s-secrets/data/nextcloud#url>
@@ -116,12 +116,12 @@ spec:
               port: 80  
             persistence:
               enabled: true
-              existingClaim: nextcloud-squid
+              existingClaim: nextcloud
               accessMode: ReadWriteMany
               nextcloudData:
                 enabled: true
                 subPath: data
-                existingClaim: nextcloud-data-squid
+                existingClaim: nextcloud-data
                 accessMode: ReadWriteMany
             livenessProbe:
               enabled: true
