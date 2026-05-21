@@ -8,6 +8,6 @@ spec:
   resources:
     requests:
       storage: 20Gi
-  storageClassName: cephfs-r2-noexport
+  storageClassName: cephfs-r2-noexport-squid
   volumeMode: Filesystem
 
