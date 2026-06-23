@@ -99,6 +99,12 @@ spec:
                  value: "16G"
                - name: PHP_UPLOAD_LIMIT
                  value: "16G"
+              securityContext:
+                runAsUser: 33
+                runAsGroup: 33
+                runAsNonRoot: true
+              podSecurityContext:
+                fsGroup: 33
             internalDatabase:
               enabled: false
             externalDatabase:
