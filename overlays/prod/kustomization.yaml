@@ -6,21 +6,21 @@ resources:
   - urbackup-client.yaml
   - urbackup-pvc.yaml  
 
-patches:
-  - target:
-      kind: PersistentVolumeClaim
-      name: mariabackup
-    patch: |-
-      - op: replace
-        path: /spec/resources/requests/storage
-        value: "1Ti"
-  - target:
-      kind: PersistentVolumeClaim
-      name: nextcloud
-    patch: |-
-      - op: replace
-        path: /spec/storageClassName
-        value: "cephfs-r2"
+# patches:
+  # - target:
+      # kind: PersistentVolumeClaim
+      # name: mariabackup
+    # patch: |-
+      # - op: replace
+        # path: /spec/resources/requests/storage
+        # value: "1Ti"
+  # - target:
+      # kind: PersistentVolumeClaim
+      # name: nextcloud
+    # patch: |-
+      # - op: replace
+        # path: /spec/storageClassName
+        # value: "cephfs-r2"
 
 
 
