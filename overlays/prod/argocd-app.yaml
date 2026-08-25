@@ -25,8 +25,8 @@ spec:
           value: |
             image:
               repository: daniva6/nextcloud
-              tag: 33.0.2-apache-smb
-            replicaCount: 1
+              tag: 33.0.8-apache-smb
+            replicaCount: 2
             nextcloud:
               host: <path:k8s-secrets/data/nextcloud#url>
               # username: admin
@@ -93,12 +93,20 @@ spec:
                          'port' => '6379',
                       ],
                     'maintenance_window_start' => 1,
+                    'serverid' => 1,
                   );               
               extraEnv:
                - name: PHP_MEMORY_LIMIT
                  value: "16G"
                - name: PHP_UPLOAD_LIMIT
                  value: "16G"
+              securityContext:
+                runAsUser: 33
+                runAsGroup: 33
+                runAsNonRoot: true
+              podSecurityContext:
+                fsGroup: 33
+                fsGroupChangePolicy: "OnRootMismatch"
             internalDatabase:
               enabled: false
             externalDatabase:
