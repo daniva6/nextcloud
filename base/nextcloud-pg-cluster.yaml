@@ -47,11 +47,11 @@ spec:
       min_wal_size: "80MB"
       random_page_cost: "1.1"
 
-  # affinity:
-    # enablePodAntiAffinity: true
+  affinity:
+    enablePodAntiAffinity: true
 
-  # monitoring:
-    # enablePodMonitor: true
+  monitoring:
+    enablePodMonitor: true
 
   # backup:
     # retentionPolicy: "30d"
