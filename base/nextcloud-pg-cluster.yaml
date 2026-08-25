@@ -27,7 +27,7 @@ spec:
       cpu: 250m
       memory: 512Mi
     limits:
-      cpu: 1
+      cpu: "1"
       memory: 1Gi
 
   postgresql:
@@ -52,8 +52,8 @@ spec:
   backup:
     retentionPolicy: "30d"
     barmanObjectStore:
-      destinationPath: <path:k8s-secrets/data/tsdb#backup-destination-path>
-      endpointURL: <path:k8s-secrets/data/common#rgw-backup-endpoint-URL>
+      destinationPath: "<path:k8s-secrets/data/tsdb#backup-destination-path>"
+      endpointURL: "<path:k8s-secrets/data/common#rgw-backup-endpoint-URL>"
       s3Credentials:
         accessKeyId:
           name: rgw-credentials
@@ -63,4 +63,4 @@ spec:
           key: SECRET_ACCESS_KEY
       wal:
         compression: gzip
-        maxParallel: 4          
+        maxParallel: 4
