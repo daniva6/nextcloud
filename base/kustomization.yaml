@@ -11,3 +11,7 @@ resources:
 - nextcloud-mariadb.yaml
 - nextcloud-ir.yaml
 - nextcloud-backup.yaml
+#
+- nextcloud-cnpg-owner-secret.yaml
+- nextcloud-cnpg-superuser-secret.yaml
+- nextcloud-pg-cluster.yaml
