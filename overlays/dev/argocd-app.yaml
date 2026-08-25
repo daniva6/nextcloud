@@ -107,9 +107,6 @@ spec:
               podSecurityContext:
                 fsGroup: 33
                 fsGroupChangePolicy: "OnRootMismatch"
-              cron:
-                enabled: true
-                schedule: "*/5 * * * *"  # Every 5 minutes
             internalDatabase:
               enabled: false
             externalDatabase:
@@ -121,7 +118,7 @@ spec:
                 usernameKey: db-username
                 passwordKey: db-password
             cronjob:
-              enabled: false  
+              enabled: true  
             service:
               type: ClusterIP
               port: 80  
