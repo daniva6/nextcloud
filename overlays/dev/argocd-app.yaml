@@ -93,6 +93,7 @@ spec:
                          'port' => '6379',
                       ],
                     'maintenance_window_start' => 1,
+                    'serverid' => 1,
                   );               
               extraEnv:
                - name: PHP_MEMORY_LIMIT
@@ -106,6 +107,9 @@ spec:
               podSecurityContext:
                 fsGroup: 33
                 fsGroupChangePolicy: "OnRootMismatch"
+              cron:
+                enabled: true
+                schedule: "*/5 * * * *"  # Every 5 minutes
             internalDatabase:
               enabled: false
             externalDatabase:
@@ -117,7 +121,7 @@ spec:
                 usernameKey: db-username
                 passwordKey: db-password
             cronjob:
-              enabled: true  
+              enabled: false  
             service:
               type: ClusterIP
               port: 80  
