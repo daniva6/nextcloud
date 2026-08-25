@@ -32,16 +32,16 @@ spec:
 
   postgresql:
     parameters:
-      shared_buffers: 256MB
-      effective_cache_size: 768MB
-      maintenance_work_mem: 64MB
-      work_mem: 8MB
-      max_connections: 200
+      max_connections: "200"
+      shared_buffers: "256MB"
+      effective_cache_size: "768MB"
+      maintenance_work_mem: "64MB"
+      work_mem: "8MB"
       wal_compression: "on"
       checkpoint_completion_target: "0.9"
-      max_wal_size: 1GB
-      min_wal_size: 80MB
-      random_page_cost: 1.1
+      max_wal_size: "1GB"
+      min_wal_size: "80MB"
+      random_page_cost: "1.1"
 
   affinity:
     enablePodAntiAffinity: true
