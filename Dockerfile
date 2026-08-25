@@ -1,7 +1,7 @@
 #
 # Nextcloud v33 with smbclient and inotify
 #
-FROM nextcloud:33.0.2-apache
+FROM nextcloud:33.0.8-apache
 
 LABEL maintainer="Daniel Vogel <Daniel.Vogel@gmx.ch>"
 
