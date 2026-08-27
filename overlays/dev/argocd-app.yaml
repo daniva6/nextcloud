@@ -25,7 +25,7 @@ spec:
           value: |
             image:
               repository: daniva6/nextcloud
-              tag: 34.0.3-apache-smb
+              tag: 33.0.8-apache-smb
             replicaCount: 1
             nextcloud:
               host: <path:k8s-secrets/data/nextcloud#url>
@@ -111,6 +111,13 @@ spec:
               enabled: false
             externalDatabase:
               enabled: true
+              # host: nextcloud-mariadb
+              # existingSecret:
+                # enabled: true
+                # secretName: mariadb
+                # usernameKey: db-username
+                # passwordKey: db-password
+              type: postgresql
               host: nextcloud-pg-rw
               existingSecret:
                 enabled: true
@@ -131,13 +138,22 @@ spec:
                 subPath: data
                 existingClaim: nextcloud-data
                 accessMode: ReadWriteMany
-            livenessProbe:
-              enabled: true
-              initialDelaySeconds: 30
             readinessProbe:
               enabled: true
-              initialDelaySeconds: 30
+              initialDelaySeconds: 60
+              periodSeconds: 10
+              timeoutSeconds: 5
+              failureThreshold: 6
+            livenessProbe:
+              enabled: true
+              initialDelaySeconds: 180
+              periodSeconds: 20
+              timeoutSeconds: 5
+              failureThreshold: 6
             startupProbe:
-              enabled: false
-              initialDelaySeconds: 30
+              enabled: true
+              periodSeconds: 10
+              timeoutSeconds: 5
+              failureThreshold: 30
+
          
