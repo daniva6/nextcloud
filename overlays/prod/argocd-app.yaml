@@ -111,12 +111,13 @@ spec:
               enabled: false
             externalDatabase:
               enabled: true
-              host: nextcloud-mariadb
+              type: postgresql
+              host: nextcloud-pg-rw
               existingSecret:
                 enabled: true
-                secretName: mariadb
-                usernameKey: db-username
-                passwordKey: db-password
+                secretName: nextcloud-cnpg-owner
+                usernameKey: username
+                passwordKey: password                
             cronjob:
               enabled: true  
             service:
