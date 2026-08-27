@@ -16,3 +16,4 @@ resources:
 - nextcloud-cnpg-superuser-secret.yaml
 - rgw-credentials-secret.yaml
 - nextcloud-pg-cluster.yaml
+- nextcloud-daily-backup.yaml

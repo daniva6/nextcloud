@@ -1,0 +1,13 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  labels:
+    app.kubernetes.io/instance: tsdb
+  name: nextcloud-daily-backup
+spec:
+  cluster:
+    name: nextcloud-pg
+  method: barmanObjectStore
+  schedule: 0 40 3 * * *
+  backupOwnerReference: cluster
+  immediate: true  
