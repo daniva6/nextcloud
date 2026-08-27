@@ -3,7 +3,7 @@ kind: Cluster
 metadata:
   name: nextcloud-pg
 spec:
-  instances: 1
+  instances: 3
 
   imageName: ghcr.io/cloudnative-pg/postgresql:16
 
@@ -53,18 +53,18 @@ spec:
   monitoring:
     enablePodMonitor: true
 
-  # backup:
-    # retentionPolicy: "30d"
-    # barmanObjectStore:
-      # destinationPath: "<path:k8s-secrets/data/tsdb#backup-destination-path>"
-      # endpointURL: "<path:k8s-secrets/data/common#rgw-backup-endpoint-URL>"
-      # s3Credentials:
-        # accessKeyId:
-          # name: rgw-credentials
-          # key: ACCESS_KEY_ID
-        # secretAccessKey:
-          # name: rgw-credentials
-          # key: SECRET_ACCESS_KEY
-      # wal:
-        # compression: gzip
-        # maxParallel: 4
+  backup:
+    retentionPolicy: "30d"
+    barmanObjectStore:
+      destinationPath: "<path:k8s-secrets/data/tsdb#backup-destination-path>"
+      endpointURL: "<path:k8s-secrets/data/common#rgw-backup-endpoint-URL>"
+      s3Credentials:
+        accessKeyId:
+          name: rgw-credentials
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: rgw-credentials
+          key: SECRET_ACCESS_KEY
+      wal:
+        compression: gzip
+        maxParallel: 4
