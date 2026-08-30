@@ -6,9 +6,11 @@ resources:
 
 patches:
   - target:
-      kind: Backup
-      name: nextcloud-backup
+      kind: Cluster
+      name: nextcloud-pg
     patch: |-
       - op: replace
-        path: /spec/schedule/suspend
-        value: true
+        path: /spec/instances
+        value: 1
+      - op: remove
+        path: /spec/backup         
