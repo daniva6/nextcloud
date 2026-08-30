@@ -2,9 +2,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ../../base
-  - urbackup-client.yaml
-  - urbackup-pvc.yaml  
+- ../../base
+- urbackup-client.yaml
+- urbackup-pvc.yaml  
+- nextcloud-daily-backup.yaml  
 
 # patches:
   # - target:
