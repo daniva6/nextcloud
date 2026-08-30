@@ -29,8 +29,6 @@ spec:
           name: nextcloud-data
         - mountPath: /backup/nextcloud
           name: nextcloud
-        - mountPath: /backup/mariadb
-          name: mariabackup
       volumes:
       - name: urbackup
         persistentVolumeClaim:
@@ -41,6 +39,4 @@ spec:
       - name: nextcloud
         persistentVolumeClaim:
           claimName: nextcloud
-      - name: mariabackup
-        persistentVolumeClaim:
-          claimName: mariabackup-squid
+
