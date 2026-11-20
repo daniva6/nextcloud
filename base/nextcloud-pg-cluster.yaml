@@ -9,10 +9,10 @@ spec:
 
   storage:
     size: 10Gi
-    storageClass: cephrbd-r2-squid
+    storageClass: cephrbd-r2-external
     
   walStorage:
-    storageClass: cephrbd-hdd-r2-squid
+    storageClass: cephrbd-hdd-r2-external
     size: 10Gi      
 
   bootstrap:

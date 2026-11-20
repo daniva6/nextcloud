@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nextcloud-data
+  name: nextcloud-external
 spec:
   accessModes:
   - ReadWriteMany
   resources:
     requests:
-      storage: 10Ti
-  storageClassName: cephfs-hdd-r2-noexport-squid
+      storage: 20Gi
+  storageClassName: cephfs-r2-noexport-external
   volumeMode: Filesystem
 

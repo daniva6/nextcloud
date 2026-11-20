@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
 - nextcloud-secret.yaml
-- nextcloud-data-squid-pvc.yaml
-- nextcloud-squid-pvc.yaml
+- nextcloud-data-external-pvc.yaml
+- nextcloud-external-pvc.yaml
 - redis.yaml
 - nextcloud-ir.yaml
 - nextcloud-cnpg-owner-secret.yaml
