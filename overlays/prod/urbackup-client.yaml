@@ -35,8 +35,8 @@ spec:
           claimName: urbackup          
       - name: nextcloud-data
         persistentVolumeClaim:
-          claimName: nextcloud-data
+          claimName: nextcloud-data-external
       - name: nextcloud
         persistentVolumeClaim:
-          claimName: nextcloud
+          claimName: nextcloud-external
 
