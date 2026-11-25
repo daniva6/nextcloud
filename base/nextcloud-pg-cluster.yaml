@@ -56,8 +56,8 @@ spec:
   backup:
     retentionPolicy: "30d"
     barmanObjectStore:
-      destinationPath: "<path:k8s-secrets/data/tsdb#backup-destination-path>"
-      endpointURL: "<path:k8s-secrets/data/common#rgw-backup-endpoint-URL>"
+      destinationPath: "<path:k8s-secrets/data/tsdb#s3-backup-destination-path>"
+      endpointURL: "<path:k8s-secrets/data/common#s3-rgw-backup-endpoint-URL>"
       s3Credentials:
         accessKeyId:
           name: rgw-credentials
